@@ -256,4 +256,9 @@ async def createGuild(ctx, name: str, description: str):
     else:
         await ctx.send(f'Failed to create guild. Status Code: {response.status_code}, Error: {response.text}')
 
-bot.run('MTE2NDQwNzUwNDcwMTIyNzExOA.Gtd62F.LJfPd8UjVlgOOrysWH0YiOx0iBZgPaN9h2r5y0')
+
+with open('env.json', 'r') as f:
+    config = json.load(f)
+
+discordToken = config['discord-bot']
+bot.run(discordToken)
